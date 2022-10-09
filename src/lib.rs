@@ -64,6 +64,7 @@ impl fmt::Display for WebChangeError {
     }
 }
 
+#[derive(Debug)]
 pub struct Client {
     req_client: reqwest::Client,
     username: String,
