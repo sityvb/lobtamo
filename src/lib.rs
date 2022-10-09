@@ -153,8 +153,7 @@ impl Client {
             .send()
             .await?
             .json()
-            .await
-            .expect("json fail");
+            .await?;
 
         let web_token_auth_response: MobileWebAuthResponse = req_client
             .get("https://dienynas.tamo.lt/MobileServiceV3/GetWebToken")
