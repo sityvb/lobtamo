@@ -111,9 +111,9 @@ mod event_parse {
 
 #[derive(PartialEq)]
 pub struct Subject {
-    name: String,
+    pub name: String,
     // mokymoLygiuPeriodoId
-    id: u64,
+    pub id: u64,
 }
 
 impl From<&event_parse::Event> for Subject {
