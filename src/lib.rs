@@ -281,7 +281,9 @@ impl Client {
         let mut grades = Vec::new();
         for element in fragment.select(&selector) {
             for text in element.text() {
-                if let Ok(grade) = text.parse::<f64>() {
+                // tamo used , decimal separator
+                let corrected_text = text.replace(",", ".");
+                if let Ok(grade) = corrected_text.parse::<f64>() {
                     grades.push(grade);
                 }
             }
