@@ -276,13 +276,17 @@ impl Client {
                 .await?,
         );
         let selector =
-            Selector::parse(".row > div[style*=\"line-height:50px;font-size:13px\"]:last-child")
+            Selector::parse(&(String::from(
+                ".row > div[style*=\"line-height:50px;font-size:13px\"]:last-child, ") +
+                // Your own GPA is in a SVG
+                "text:not(.position-element)"))
                 .unwrap();
         let mut grades = Vec::new();
         for element in fragment.select(&selector) {
             for text in element.text() {
+                let corrected_text = text.trim();
                 // tamo used , decimal separator
-                let corrected_text = text.replace(",", ".");
+                let corrected_text = corrected_text.replace(",", ".");
                 if let Ok(grade) = corrected_text.parse::<f64>() {
                     grades.push(grade);
                 }
