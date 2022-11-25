@@ -1,13 +1,11 @@
+mod grade_spy;
+
 use chrono;
-use chrono::format;
 use reqwest;
 use scraper::{Html, Selector};
 use serde::Deserialize;
-use serde_json;
 use std::collections::HashMap;
 use std::{error::Error, fmt};
-use tokio;
-use uuid;
 
 #[derive(Deserialize)]
 struct MobileWebAuthResponseResult {
@@ -301,6 +299,7 @@ mod tests {
     use super::*;
 
     #[tokio::test]
+    #[ignore]
     async fn login_works() {
         if let Ok(username) = std::env::var("USERNAME") {
             if let Ok(password) = std::env::var("PASSWORD") {

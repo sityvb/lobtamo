@@ -13,6 +13,7 @@ repository = "https://github.com/sityvb/lobtamo"
 
 [dependencies]
 glib = "0.15.1"
+rand = "0.8"
 tokio = { version = "1", features = ["full"] }
 chrono = { version = "0.4" }
 reqwest = { version = "0.11.11", features = ["cookies", "json"]}
@@ -20,3 +21,6 @@ serde_json = "1"
 serde = { version = "1.0.100", features = ["derive"] }
 uuid = { version = "1", features = ["v4", "fast-rng", "macro-diagnostics"] }
 scraper = "0.13.0"
+async-trait = "0.1"
+petgraph = "0.6"
+itertools = "0.10"
